@@ -1,4 +1,4 @@
-import { formValueSelector } from 'redux-form'
+import history from '../history'
 import streams from '../api/streams'
 
 export const signIn = (userId) => {
@@ -22,6 +22,7 @@ export const createStream = (formValues) => {
             type: 'CREATE_STREAM',
             payload: response.data
         })
+        history.push('/')
     }
 }
 
@@ -47,11 +48,13 @@ export const fetchStream = (id) => {
 
 export const editStream = (id, formValues) => {
     return async (dispatch) => {
-        const response = await streams.get(`/stream/${id}`, formValues)
+        const response = await streams.patch(`/stream/${id}`, formValues)
         dispatch({
             type: 'EDIT_STREAM',
             payload: response.data
         })
+        history.push('/')
+
     }
 }
 
@@ -62,5 +65,6 @@ export const deleteStream = (id) => {
             type: 'DELETE_STREAM',
             payload: id
         })
+        history.push('/')
     }
 }
