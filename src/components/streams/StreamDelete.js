@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const StreamDelete = (props) => {
-    console.log(props);
+
     useEffect(() => {
         props.fetchStream(props.match.params.id)
     }, [])
@@ -52,7 +52,7 @@ const StreamDelete = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
 
-    console.log(ownProps);
+
     return {
         stream: state.streams[ownProps.match.params.id]
     }

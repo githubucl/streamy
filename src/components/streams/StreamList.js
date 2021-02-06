@@ -21,7 +21,7 @@ const StreamList = (props) => {
 }
 
 const renderAdmin = (stream, props) => {
-    console.log(props);
+
     if (stream.userId === props.currentUserId) {
         return (
             <div className="right floated content">
@@ -48,11 +48,14 @@ const renderList = (props) => {
 
     return props.streams.map(stream => {
         return (
-            <div className="item" key={stream.id}>
+            <div
+                className="item" key={stream.id}>
                 {renderAdmin(stream, props)}
                 <i className="large middle aligned icon camera" />
                 <div className="content">
-                    {stream.title}
+                    <Link to={`/stream/${stream.id}`} className="header">
+                        {stream.title}
+                    </Link>
                     <div>
                         {stream.description}
                     </div>
