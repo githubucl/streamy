@@ -1,9 +1,11 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect, } from 'react'
 import { connect } from 'react-redux'
 import { fetchStreams } from '../../actions'
 import { Link } from 'react-router-dom'
 const StreamList = (props) => {
+
+
     useEffect(() => {
         props.fetchStreams()
     }, [])

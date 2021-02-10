@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 const StreamForm = (props) => {
     const onSubmit = (formValues) => {
-        console.log(props);
+
         props.onSubmit(formValues)
     }
 

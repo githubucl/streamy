@@ -18,6 +18,7 @@ export const createStream = (formValues) => {
     return async (dispatch, getState) => {
         const userId = getState().signInState.userId
         const response = await streams.post('/stream', { ...formValues, userId })
+
         dispatch({
             type: 'CREATE_STREAM',
             payload: response.data
@@ -29,6 +30,7 @@ export const createStream = (formValues) => {
 export const fetchStreams = () => {
     return async (dispatch) => {
         const response = await streams.get('/stream')
+
         dispatch({
             type: 'FETCH_STREAMS',
             payload: response.data
@@ -49,6 +51,7 @@ export const fetchStream = (id) => {
 export const editStream = (id, formValues) => {
     return async (dispatch) => {
         const response = await streams.patch(`/stream/${id}`, formValues)
+
         dispatch({
             type: 'EDIT_STREAM',
             payload: response.data
